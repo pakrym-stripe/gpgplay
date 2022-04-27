@@ -25,8 +25,8 @@ jobs:
       - name: Configure GPG Key
         run: |
           set -x
-          echo $GPG_SIGNING_PUBKEY > pub.gpg
-          gpg --import --batch --verbose pub.gpg
+          echo $GPG_SIGNING_PUBKEY > pub.gpg.asc
+          gpg --import --batch --verbose pub.gpg.asc
           rm pub.gpg
         env:
           GPG_SIGNING_PUBKEY: ${{ secrets.GPG_SIGNING_PUBKEY }}
